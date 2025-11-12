@@ -149,6 +149,32 @@ memberModal.addEventListener('click', e => {
 });
 
 
+// Показать/скрыть плашку "Другие услуги"
+const otherServicesBtn = document.querySelector('.nav a[href="#other-services"]');
+const otherServicePopups = document.getElementById('otherServicePopups');
+
+if (otherServicesBtn && otherServicePopups) {
+    otherServicesBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        otherServicePopups.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!otherServicesBtn.contains(e.target) && !otherServicePopups.contains(e.target)) {
+            otherServicePopups.classList.remove('show');
+        }
+    });
+}
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const servicesTab = document.getElementById('servicesTab');
 
+  servicesTab.addEventListener('click', () => {
+    servicesTab.classList.toggle('open');
+
+    // Для aria
+    const expanded = servicesTab.getAttribute('aria-expanded') === 'true';
+    servicesTab.setAttribute('aria-expanded', !expanded);
+  });
+});

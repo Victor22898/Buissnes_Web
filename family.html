@@ -4,18 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Семейные дела</title>
+  <title>Бесплатные услуги</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-<li role="menuitem" tabindex="0">
-  <a href="index.html" aria-label="На главную" title="На главную" class="back-btn">
-    ← На главную
-  </a>
-</li>
+</style>
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://ltdfoto.ru/images/2025/10/11/photo_2025-10-10_12-43-05.jpg"  alt="Банкротник">
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="#about" class="about">О компании</a>
+
+      <div class="services-wrapper">
+        <button id="servicesToggle" class="nav-btn" aria-haspopup="true" aria-expanded="false">
+          Услуги
+          <span class="arrow">&#9656;</span>
+        </button>
+
+        <div id="servicesPopup" class="services-popup hidden" role="menu" aria-label="Перечень услуг">
+          <ul class="services-list-popup">
+            <li role="menuitem" tabindex="0"><a href="consultation.html" class="service-link">Банкроство для пенсионеров</a></li>
+            <li role="menuitem" tabindex="0"><a href="documents.html" class="service-link">Бесплатное банкротсво</a></li>
+            <li role="menuitem" tabindex="0"><a href="court.html" class="service-link">Представительство в суде</a></li>
+            <li role="menuitem" tabindex="0"><a href="deal.html" class="service-link">Психологическая помощь</a></li>
+            <li role="menuitem" tabindex="0"><a href="family.html" class="service-link">Бесплатные услуги</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+      <button id="contactOpen" class="nav-btn">Контакты</button>
+      <a href="#team" class="nav-btn">Команда</a>
+      <a href="gallery.html" class="nav-btn">Галерея</a>
+      <a href="index.html" class="back-btn">Главная</a>
+      <nav class="menu">
+
+      </nav>
+
+    </nav>
+
+
+
+  </div>
+
+
+</header>
+
+
 <header>
-  <h1>Семейные дела</h1>
+  <h1>Бесплатные услуги</h1>
 </header>
   <style>
     footer {
@@ -27,38 +74,51 @@
     font-size: 14px;
   }
 
+    header {
+      background: #0a192f;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
 footer,
 footer * {
   color: white !important;
 }
-.back-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 18px; /* уменьшили размер */
-  background: linear-gradient(135deg, #ff6b6b, #e63946);
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 10px; /* чуть меньше закругление */
-  text-decoration: none;
-  box-shadow: 0 3px 12px rgba(230, 57, 70, 0.4); /* немного меньше тень */
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  font-size: 14px; /* чуть меньше шрифт */
-}
 
-.back-btn:hover {
-  background: linear-gradient(135deg, #e63946, #d62828);
-  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
-  transform: translateY(-2px);
-}
 
   </style>
 <main>
-  <section class="service-info">
-    <h2>Подробности услуги</h2>
-    <p>Мы помогаем в решении семейных и наследственных споров. Разводы, раздел имущества, установление опеки и алименты.</p>
-  </section>
+
+
+  <div class="services-container">
+    <div class="service-card">
+      <div class="free-label">БЕСПЛАТНО</div>
+      <p>Отменим любой судебный приказ.</p>
+    </div>
+    <div class="service-card">
+      <div class="free-label">БЕСПЛАТНО</div>
+      <p>Напишем ходатайство в службу судебных приставов о праве на федеральный прожиточный минимум.</p>
+    </div>
+    <div class="service-card">
+      <div class="free-label">БЕСПЛАТНО</div>
+      <p>Подготовим ходатайство на основании п.п. 4 п. 1 ст. 46 Закона 417-ФЗ об окончании исполнительного производства, если отсутствует имущество и доход.</p>
+    </div>
+    <div class="service-card">
+      <div class="free-label">БЕСПЛАТНО</div>
+      <p>Направим в банк заявление о кредитных каникулах или реструктуризации долга.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="free-label">БЕСПЛАТНО</div>
+      <p>Подготовим ходатайство о применении сроков исковой давности по старым долгам, если с момента просрочки прошло более 3 лет.</p>
+    </div>
+  </div>
+
+
+
 
   <!-- Другие услуги -->
 
@@ -92,6 +152,59 @@ footer * {
 
 
     </div>
+  </section>
+
+  <section class="contact-form-section">
+    <div class="container">
+      <h2>Готовы избавиться от долгов и начать новую жизнь — заполните форму, и мы с вами свяжемся</h2>
+
+      <form id="contactForm" action="https://formspree.io/f/mnngorny" method="POST" class="contact-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Ваше ФИО" required />
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="email" placeholder="Ваш email" required />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Ваш телефон" required />
+        </div>
+        <div class="form-group">
+
+        </div>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Выберите услугу</option>
+          <option value="Консультация">Консультация</option>
+          <option value="Подготовка документов">Подготовка документов</option>
+          <option value="Судебное представительство">Судебное представительство</option>
+        </select>
+        <textarea id="message" name="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+        <button type="submit" class="btn-submit">Отправить</button>
+      </form>
+
+      <p class="form-note">
+        Отправляя данную форму, вы даёте согласие на обработку персональных данных
+      </p>
+    </div>
+  </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("TMkoATsMBWMNLzaEh");
+      })();
+
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_3n6tbgz", "template_dtew1d9", this)
+          .then(() => {
+            alert("Сообщение отправлено!");
+          }, (err) => {
+            alert("Ошибка: " + JSON.stringify(err));
+          });
+      });
+    </script>
   </section>
 
   </section>
