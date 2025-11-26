@@ -338,17 +338,20 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 18px;
+
 }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  padding: 12px 15px;
-  border: 1px solid #bccad6;
-  border-radius: 12px;
+  padding: 14px 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: inherit;
   transition: border-color 0.3s ease;
+
+
 }
 
 .contact-form input:focus,
@@ -357,6 +360,7 @@ h2 {
   outline: none;
   border-color: #f39c12;
   box-shadow: 0 0 7px #f39c12aa;
+
 }
 
 .modal {
@@ -1063,11 +1067,11 @@ header .logo {
 }
 
 .btn-submit {
-    background: #0088cc;
+    background: #F39C12;
     color: white;
-    padding: 14px 24px;
+    padding: 14px 150px;
     border: none;
-    border-radius: 8px;
+    border-radius: 80px;
     font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
@@ -1076,7 +1080,7 @@ header .logo {
 }
 
 .btn-submit:hover {
-    background: #006ba6;
+    background: #F39C12;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 136, 204, 0.3);
 }
