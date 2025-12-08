@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Бесплатное бонкротство</title>
+  <title>Бесплатное банкротство</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
+
+
 </head>
 <body>
 </style>
-<!-- ЕДИНЫЙ ХЕДЕР — копируй его на все страницы услуг -->
+
 <header class="header">
   <div class="container header-container">
     <div class="logo">
@@ -48,28 +49,102 @@
 </nav>
 
 
-<header>
-  <h1>Бесплатное банкротство</h1>
-</header>
+
 
 
 <style>
-  header {
-      background: #0a192f;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      flex-shrink: 0;
-      position: relative;
-    }
+  /* ==================== ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ УСЛУГ ==================== */
+  .page-title {
+    background: #0a192f;
+    color: white;
+    padding: 70px 20px;
+    text-align: center;
+  }
+  .page-title h1 {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: 1px;
-    }
-</style>
-  <style>
+  .service-info {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+.big-hero-text {
+  max-width: 1000px;
+  margin: 0;                    /* убираем margin: 0 auto */
+  margin-left: 0;               /* явно прижимаем к левому краю */
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #0a1e3a;
+  text-align: left;             /* текст по левому краю */
+}
+  .big-hero-text .blue { color: #007bff; }
+
+  /* ==================== БЛОК С ЦИФРАМИ И ТЕКСТОМ ==================== */
+  .why-banks-section {
+    padding: 100px 20px;
+    background: #f8f9fc;
+
+  }
+  .reasons-list {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .reason-item {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;            /* ← центрируем всё внутри */
+  }
+.reason-number {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 30px;
+  background: white;
+  border: 4px solid #007bff;
+  color: #007bff;
+  font-size: 32px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,123,255,0.15);
+  transition: all 0.35s ease;
+}
+
+/* При наведении — только кружок меняется */
+.reason-item:hover .reason-number {
+  background: #007bff;
+  color: white;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
+}
+
+/* Заголовки (Доверчивость, Правовая неграмотность...) — никогда не подсвечиваются */
+.reason-item:hover .reason-title {
+  color: #0a1e3a !important;
+}
+  .reason-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a1e3a;
+    margin: 0 0 15px 0;
+  }
+  .reason-text {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+
+  }
+
     footer {
     background: #0a192f;
 
@@ -85,51 +160,240 @@ footer * {
 }
 
 
+  /* Адаптивность */
+  @media (max-width: 992px) {
+    .reasons-list, .price-circles { gap: 50px; }
+    .big-hero-text { font-size: 32px; }
+  }
+  @media (max-width: 768px) {
+    .reasons-list, .price-circles { flex-direction: column; align-items: center; }
+    .reason-item { text-align: center; }
+  }
 
-  </style>
+.benefits-list {
+  padding: 90px 20px;
+  background: #f8fbff;
+}
 
-<main>
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #0a1e3a;
+  margin-bottom: 70px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-number {
+  width: 60px;
+  height: 60px;
+  background: #007bff;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0,123,255,0.2);
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-heading {
+  margin: 0 0 18px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a1e3a;
+}
+
+.benefit-text {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.benefit-text li {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.benefit-text li:before {
+  content: "•";
+  color: #007bff;
+  font-weight: bold;
+  position: absolute;
+  left: -18px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .benefit-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .benefit-number {
+    margin-bottom: 20px;
+  }
+  .benefit-text {
+    padding-left: 0;
+  text-align: left;
+  }
+  .benefit-text li:before {
+    left: 0;
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Хедер и заголовок -->
+
+<section class="page-title"><div class="container"><h1>Бесплатное банкротство</h1></div></section>
+
+<main class="container">
+
+  <!-- Большой текст -->
   <section class="service-info">
-    <h2>Подробности услуги</h2>
-    <p>Наши юристы составят, проверят и подготовят все необходимые юридические документы. Вы получите полную уверенность в правильности и законности оформления.</p>
+    <h1 class="big-hero-text">
+      Мы предлагаем, <span class="blue">бесплатное</span> прохождение процедуры банкротства для следующих категорий граждан:
+    </h1>
   </section>
 
-  <!-- Другие услуги -->
-
-
-  <section id="other-services" class="section">
-    <div class="container">
-      <h2><span class="blue">ДРУГИЕ</span> <span class="red">УСЛУГИ</span></h2>
-
-      <div class="other-services-row">
-        <a href="consultation.html" class="other-service">
-          <div class="other-service-img" style="background-image: url('data:image/jpeg;base64,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');"></div>
-          <h3>Консультация</h3>
-        </a>
-
-        <a href="documents.html" class="other-service">
-          <div class="other-service-img" style="background-image: url('https://e-mba.ru/upload/iblock/97a/11kfwanlr2amgvzqkhzkl91c7filgp33.jpg');"></div>
-          <h3>Документы</h3>
-        </a>
-
-        <a href="court.html" class="other-service">
-          <div class="other-service-img" style="background-image: url('data:image/jpeg;base64,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');"></div>
-          <h3>Судебная защита</h3>
-        </a>
-
-        <a href="family.html" class="other-service">
-          <div class="other-service-img" style="background-image: url('https://pravoedeloperm.ru/upload/medialibrary/d1a/semeyniy-yurist.jpg');"></div>
-          <h3>Семейные дела</h3>
-        </a>
+  <!-- Блок "Почему банки выбирают пенсионеров" — теперь всё по центру -->
+  <section class="why-banks-section">
+    <div class="reasons-list">
+      <div class="reason-item">
+        <div class="reason-number">01</div>
+        <h3 class="reason-title">Доверчивость</h3>
+        <p class="reason-text">
+          Участники Великой Отечественной Войны.
+        </p>
       </div>
 
+      <div class="reason-item">
+        <div class="reason-number">02</div>
+        <h3 class="reason-title">Правовая неграмотность</h3>
+        <p class="reason-text">
+          Ветераны боевых действий, являющиеся инвалидами
+          1 или 2 группы, с причиной инвалидности «Военная травма»
+        </p>
+      </div>
 
+      <div class="reason-item">
+        <div class="reason-number">03</div>
+        <h3 class="reason-title">Низкий доход</h3>
+        <p class="reason-text">
+          Матери погибших ветеранов боевых действий
+        </p>
+      </div>
     </div>
   </section>
 
+
+  <section class="faq-accordion">
+    <div class="container">
+
+      <section class="benefits-list">
+        <div class="container">
+
+          <h2 class="section-title">Какие документы необходимо предоставить:</h2>
+
+          <div class="benefit-item">
+            <div class="benefit-number">1</div>
+            <div class="benefit-content">
+              <h3 class="benefit-heading">Для участников Великой Отечественной войны:</h3>
+              <ul class="benefit-text">
+                <li>В соответствии со ст. 2 ФЗ № 5-ФЗ (ред. 30.04.21) «О ветеранах» понятие «ветеран ВОВ» шире и включает в себя понятие «участник ВОВ» - пп. 1 п. 1 ст. 2 Закона
+                  Статус участника ВОВ подтверждается удостоверением на бланке установленного образца.
+                  При заполнении удостоверения участника ВОВ после слов "Предъявитель настоящего удостоверения" делается запись "ветеран - участник"</li>
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-number">2</div>
+            <div class="benefit-content">
+              <h3 class="benefit-heading">Для ветеранов боевых действий, являющихся инвалидами 1 или 2 группы</h3>
+              <ul class="benefit-text">
+                <h3>Для получения льготы по указанному основанию необходимо подтвердить одновременно два условия:</h3>
+                <li>Ветеран боевых действий</li>
+                <li>Инвалид 1 или 2 группы, с причиной инвалидности «Военная травма»</li>
+                <p>Ветеран боевых действий - клиент, имеющий запись «1» в строке после слов: "Предъявитель настоящего удостоверения имеет права и льготы, установленные пунктом"</p>
+                <h3>Документы должны быть представлены в оригинале.</h3>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Добавляй новые пункты по такому же шаблону -->
+          <div class="benefit-item">
+            <div class="benefit-number">3</div>
+            <div class="benefit-content">
+              <h3 class="benefit-heading">Для матерей погибших ветеранов боевых действий:</h3>
+              <ul class="benefit-text">
+                <p>Статус матери, погибшего ветерана боевых действий подтверждается удостоверением «Члена семьи погибшего (умершего) инвалида войны, участника Великой Отечественной войны и ветерана боевых действий» на бланке установленного образца.</p>
+                <p>Для получения льготы компании в удостоверении после слов "Предъявитель настоящего удостоверения - член семьи погибшего (умершего) (нужное подчеркнуть) инвалида войны, участника Великой Отечественной войны и ветерана боевых действий" должен быть указан «п.п. 1 п. 2» ст. 21 статьи 21 Федерального закона "О ветеранах", в соответствии с которым гражданин относится к членам семьи погибшего (умершего).</p>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </div>
   </section>
 </main>
+
+<section class="contact-form-section">
+  <div class="container">
+    <h2>Готовы избавиться от долгов и начать новую жизнь — заполните форму, и мы с вами свяжемся</h2>
+
+    <form id="contactForm" action="https://formspree.io/f/mnngorny" method="POST" class="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Ваше ФИО" required />
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="email" placeholder="Ваш email" required />
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Ваш телефон" required />
+      </div>
+
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Выберите услугу</option>
+        <option value="Консультация">Консультация</option>
+        <option value="Подготовка документов">Подготовка документов</option>
+        <option value="Судебное представительство">Судебное представительство</option>
+      </select>
+      <textarea id="message" name="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit" class="btn-submit">Отправить</button>
+    </form>
+
+    <p class="form-note">
+      Отправляя данную форму, вы даёте согласие на обработку персональных данных
+    </p>
+  </div>
+
+</section>
+
 
   <div class="socials">
     <p><strong>Ищите нас здесь:</strong></p>
@@ -144,13 +408,49 @@ footer * {
     <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" width="100%" height="300" frameborder="0"></iframe>
     <button class="btn" onclick="window.open('https://yandex.ru/maps/39/rostov-na-donu/house/sotsialisticheskaya_ulitsa_37/Z0AYcQdkTEABQFptfX5weX9gbQ==/panorama/?ll=39.704556%2C47.218339&mode=search&panorama%5Bdirection%5D=338.594002%2C0.609756&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=39.704639%2C47.218252&panorama%5Bspan%5D=121.957190%2C60.000000&sll=37.606692%2C55.764338&sspn=0.021801%2C0.007053&tab=panorama&text=%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2037&z=16')">Карта офиса</button>
   </div>
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Юридическая Компания "LawFirm" | Москва, ул. Примерная, д. 1</p>
-    </div>
-  </footer>
+<footer class="footer">
+  <div class="container footer-container">
 
-  <script src="script.js"></script>
+    <!-- Левый столбец -->
+    <div class="footer-column">
+      <h4 class="footer-title">УСЛУГИ</h4>
+      <ul class="footer-links">
+        <li><a href="consultation.html">Банкротство для пенсионеров</a></li>
+        <li><a href="documents.html">Бесплатное банкротство</a></li>
+        <li><a href="court.html">Представительство в суде</a></li>
+        <li><a href="deal.html">Психологическая помощь</a></li>
+        <li><a href="family.html">Бесплатные услуги</a></li>
+      </ul>
+    </div>
+
+    <!-- Правый столбец -->
+    <div class="footer-column">
+      <h4 class="footer-title">МЕНЮ</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#about">О компании</a></li>
+        <li><a href="index.html#team">Команда</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="index.html#contacts">Контакты</a></li>
+      </ul>
+
+      <div class="footer-phone">
+        <a href="tel:88005056868" class="phone-link">8 800 505 68 68</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Нижняя строка с копирайтом -->
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© Росбанкрот, 2025</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>

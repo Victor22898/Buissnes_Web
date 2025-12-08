@@ -178,3 +178,36 @@ document.addEventListener('DOMContentLoaded', () => {
     servicesTab.setAttribute('aria-expanded', !expanded);
   });
 });
+
+// script.js — 100% работает
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.faq-item');
+
+  items.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    const toggle = item.querySelector('.faq-toggle');
+
+    // Клик по всей шапке (и по кнопке тоже)
+    header.addEventListener('click', function (e) {
+      // Если клик по кнопке — не даём ей всплывать отдельно
+      if (toggle && e.target.closest('.faq-toggle')) {
+        e.preventDefault();
+      }
+
+      const isActive = item.classList.contains('active');
+
+      // Закрываем все остальные
+      items.forEach(i => {
+        i.classList.remove('active');
+        const btn = i.querySelector('.faq-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+
+      // Если текущий был закрыт — открываем
+      if (!isActive) {
+        item.classList.add('active');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+});
