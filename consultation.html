@@ -350,6 +350,93 @@ footer * {
   }
   .circle { width: 240px; height: 240px; }
 }
+
+  .footer-bottom-bar {
+  background: #0a192f;
+  color: white;
+  padding: 60px 20px 40px;
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.footer-contacts-left {
+  max-width: 420px;
+}
+
+.footer-contacts-left p {
+  margin: 10px 0;
+}
+
+.footer-contacts-left a {
+  color: #00d4ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contacts-left a:hover {
+  color: white;
+}
+
+.footer-socials {
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+}
+
+.footer-socials img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: translateY(-4px);
+}
+
+.footer-copyright {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Линия над копирайтом */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 40px auto 0;
+  max-width: 1200px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-contacts-left {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
+}
   </style>
 
   <section class="service-info">
@@ -666,13 +753,50 @@ footer * {
 
   </div>
 
-  <!-- Нижняя строка с копирайтом -->
-  <div class="footer-bottom">
-    <div class="container">
-      <p>© Росбанкрот, 2025</p>
+  <!-- Нижняя полоса под футером -->
+  <!-- Нижняя полоса под футером — контакты слева, копирайт по центру, линия под копирайтом -->
+  <!-- Нижняя полоса под футером -->
+  <section class="footer-bottom-bar">
+    <div class="container footer-bottom-container">
+
+      <!-- Левая часть — контакты по левому краю -->
+      <div class="footer-contacts-left">
+        <p><strong>Ищите нас здесь:</strong></p>
+        <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 1</p>
+        <p><strong>Телефон:</strong> <a href="tel:+71234567890">+7 (123) 456-78-90</a></p>
+        <p><strong>Email:</strong> <a href="mailto:bankrotnik05@mail.ru">bankrotnik05@mail.ru</a></p>
+
+        <div class="footer-socials">
+          <a href="https://t.me/yourchannel" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/telegram-app.png" alt="Telegram" width="28">
+          </a>
+          <a href="https://vk.com/yourpage" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/vk-circled.png" alt="VK" width="28">
+          </a>
+        </div>
+      </div>
+
+      <!-- Правая часть — копирайт по центру -->
+      <div class="footer-copyright">
+        <p></p>
+      </div>
     </div>
+
+    <!-- Линия над копирайтом -->
+    <div class="footer-divider"></div>
+  </section>
+  <script src="script.js"></script>
+
+  <!-- Правая часть — копирайт по центру -->
+  <div class="footer-copyright">
+    <p></p>
   </div>
-</footer>
+
+      <!-- Правая часть — копирайт по центру -->
+      <div class="footer-copyright">
+        <p>© Росбанкрот, 2025</p>
+      </div>
+
 
 
   <script src="script.js"></script>
