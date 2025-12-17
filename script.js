@@ -166,19 +166,6 @@ if (otherServicesBtn && otherServicePopups) {
     });
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const servicesTab = document.getElementById('servicesTab');
-
-  servicesTab.addEventListener('click', () => {
-    servicesTab.classList.toggle('open');
-
-    // Для aria
-    const expanded = servicesTab.getAttribute('aria-expanded') === 'true';
-    servicesTab.setAttribute('aria-expanded', !expanded);
-  });
-});
-
 // script.js — 100% работает
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.faq-item');

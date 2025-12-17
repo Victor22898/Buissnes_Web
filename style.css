@@ -1192,3 +1192,33 @@ header .logo {
     margin-top: 20px;
   }
 }
+.header {
+  background: ##2c3e50;
+  padding: 15px 0; /* чуть меньше отступов сверху/снизу */
+  text-align: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-logo {
+  display: block;
+}
+
+.logo-img {
+  max-width: 150px;   /* ← фото теперь меньше */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px; /* опционально — лёгкое закругление */
+}
+
+/* На телефоне — ещё меньше */
+@media (max-width: 768px) {
+  .logo-img {
+    max-width: 120px;
+  }
+}

@@ -23,13 +23,100 @@ footer * {
   color: white !important;
 }
 
+
+  .footer-bottom-bar {
+  background: #0a192f;
+  color: white;
+  padding: 60px 20px 40px;
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.footer-contacts-left {
+  max-width: 420px;
+}
+
+.footer-contacts-left p {
+  margin: 10px 0;
+}
+
+.footer-contacts-left a {
+  color: #00d4ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contacts-left a:hover {
+  color: white;
+}
+
+.footer-socials {
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+}
+
+.footer-socials img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: translateY(-4px);
+}
+
+.footer-copyright {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Линия над копирайтом */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 40px auto 0;
+  max-width: 1200px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-contacts-left {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .footer-socials {
+    justify-content: center;
+
 </style>
+
 <header class="header">
+
     <div class="container header-container">
         <div class="logo">
             <a href="index.html">
-                <img src="https://ltdfoto.ru/images/2025/10/11/photo_2025-10-10_12-43-05.jpg"  alt="Банкротник">
-            </a>
+                <img src="https://allwebs.ru/images/2025/12/17/ee76f4163916c933b7445aa676731169.jpg" alt="photo 2025 12 17 11 17 11" border="0">
         </div>
 
         <nav class="nav">
@@ -182,7 +269,6 @@ footer * {
 </div>
 
 
-
 <div class="socials">
     <p><strong>Ищите нас здесь:</strong></p>
     <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д.1</p>
@@ -197,6 +283,7 @@ footer * {
     <button class="btn" onclick="window.open('https://yandex.ru/maps/39/rostov-na-donu/house/sotsialisticheskaya_ulitsa_37/Z0AYcQdkTEABQFptfX5weX9gbQ==/panorama/?ll=39.704556%2C47.218339&mode=search&panorama%5Bdirection%5D=338.594002%2C0.609756&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=39.704639%2C47.218252&panorama%5Bspan%5D=121.957190%2C60.000000&sll=37.606692%2C55.764338&sspn=0.021801%2C0.007053&tab=panorama&text=%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2037&z=16')">Карта офиса</button>
 
 </div>
+
 
 <footer class="footer">
     <div class="container footer-container">
@@ -231,14 +318,51 @@ footer * {
 
     </div>
 
-    <!-- Нижняя строка с копирайтом -->
-    <div class="footer-bottom">
-        <div class="container">
-            <p>© Росбанкрот, 2025</p>
-        </div>
-    </div>
-</footer>
 
-<script src="script.js"></script>
+    <section class="footer-bottom-bar">
+        <div class="container footer-bottom-container">
+
+            
+            <div class="footer-contacts-left">
+                <p><strong>Ищите нас здесь:</strong></p>
+                <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 1</p>
+                <p><strong>Телефон:</strong> <a href="tel:+71234567890">+7 (123) 456-78-90</a></p>
+                <p><strong>Email:</strong> <a href="mailto:bankrotnik05@mail.ru">bankrotnik05@mail.ru</a></p>
+
+                <div class="footer-socials">
+                    <a href="https://t.me/yourchannel" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/100/ffffff/telegram-app.png" alt="Telegram" width="28">
+                    </a>
+                    <a href="https://vk.com/yourpage" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/100/ffffff/vk-circled.png" alt="VK" width="28">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Правая часть — копирайт по центру -->
+            <div class="footer-copyright">
+                <p></p>
+            </div>
+        </div>
+
+        <!-- Линия над копирайтом -->
+        <div class="footer-divider"></div>
+    </section>
+    <script src="script.js"></script>
+
+    <!-- Правая часть — копирайт по центру -->
+    <div class="footer-copyright">
+        <p></p>
+    </div>
+
+    <!-- Правая часть — копирайт по центру -->
+    <div class="footer-copyright">
+        <p>© ООО Банкротник, 2025</p>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>

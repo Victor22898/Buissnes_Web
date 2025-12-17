@@ -4,287 +4,469 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Галерея</title>
-
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
 
-    header {
-      background: #0a192f;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: 1px;
-    }
-
-    .back-btn {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: inline-block;
-      margin-top: 0;
-      padding: 8px 18px;
-      background: linear-gradient(135deg, #ff6b6b, #e63946);
-      color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 3px 12px rgba(230, 57, 70, 0.4);
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-      font-size: 14px;
-      user-select: none;
-    }
-
-    .back-btn:hover {
-      background: linear-gradient(135deg, #e63946, #d62828);
-      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
-      transform: translateY(calc(-50% - 2px));
-    }
-
-    main {
-      flex: 1 0 auto;
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 30px;
-      min-height: 720px;
-    }
-
-/* Контейнер галереи */
-gallery-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 20px;
+    .employee-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-/* делаем элементы сетки квадратными */
-.gallery-container > * {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* для картинок внутри — покрытие квадрата */
-.gallery-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Карточка сотрудника */
-.employee-card {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Эффект при наведении */
 .employee-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Фото */
-.employee-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* фото всегда квадратное */
-  object-fit: cover;
+.employee-photo {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
 
-/* Информация под фото */
+.employee-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .employee-info {
-  padding: 10px 12px;
-  text-align: center;
-  background: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    background: white;
 }
 
 .employee-info h3 {
-  margin: 0 0 6px;
-  color: #0a192f;
-  font-size: 16px;
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #333;
 }
 
 .employee-info p {
-  margin: 0;
-  color: #555;
-  font-size: 14px;
+    margin: 0;
+    color: #666;
+    font-size: 14px;
 }
+    * { box-sizing: border-box; }
 
-    footer {
-      background: #0a192f;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 14px;
-      flex-shrink: 0;
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
 
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    /* ====================== HEADER ====================== */
+    .header {
+        background: #34495e;
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        vertical-align: middle;
+        filter: brightness(0.40) contrast(1.2);
+        mix-blend-mode: darken;
+    }
+
+    .nav {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav a,
+    .nav .nav-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+
+    .nav a:hover,
+    .nav .nav-btn:hover {
+        color: #f39c12;
+    }
+
+    /* Кнопка "Главная" */
+    .back-btn {
+        background: linear-gradient(135deg, #ff6b6b, #e63946);
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 10px;
+        padding: 8px 18px;
+        box-shadow: 0 3px 12px rgba(230, 57, 70, 0.4);
+        transition: all 0.3s ease;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .back-btn:hover {
+        background: linear-gradient(135deg, #e63946, #d62828);
+        box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
+    }
+
+    /* Выпадающее меню "Услуги" */
+    .services-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .arrow.rotate {
+        transform: rotate(90deg);
+    }
+
+    .services-popup {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        min-width: 260px;
+        max-width: 360px;
+        max-height: 320px;
+        overflow-y: auto;
+        padding: 6px 0;
+        z-index: 1500;
+        display: none;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .18s ease, transform .18s ease;
+        pointer-events: none;
+        color: #000 !important;
+    }
+
+    .services-popup.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .services-popup,
+    .services-popup * {
+        color: #000 !important;
+    }
+
+    .services-list-popup {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .services-list-popup li {
+        margin: 0;
+    }
+
+    .service-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        color: #000 !important;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        background: transparent;
+        cursor: pointer;
+        white-space: normal;
+    }
+
+    .service-link:hover {
+        background: #f5f5f5;
+    }
+
+    .service-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Адаптивность header */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .nav {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            margin-bottom: 10px;
+        }
+    }
+
+    /* ========== MAIN (галерея) ========== */
+    main {
+        flex: 1 0 auto;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .gallery-container > * {
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-container > *:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+        background: #0a192f;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    /* ========== МОДАЛЬНОЕ ОКНО ========== */
     .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right:0;
-      bottom:0;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
     }
 
     .modal-overlay.active {
-      display: flex;
+        display: flex;
     }
 
     .modal {
-      background: white;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-      overflow: hidden;
-      position: relative;
+        background: white;
+        border-radius: 12px;
+        max-width: 600px;
+        width: 90%;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     }
 
     .modal img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .modal-content {
-      padding: 20px;
-    }
-
-    .modal-content h2 {
-      margin: 0 0 10px;
-      color: #0a192f;
-    }
-
-    .modal-content p {
-      color: #555;
-      font-size: 16px;
-      line-height: 1.4;
-      margin: 0 0 20px;
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
     }
 
     .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #666;
-      cursor: pointer;
-      user-select: none;
-      transition: color 0.3s ease;
-    }
-
-    .modal-close:hover {
-      color: #e63946;
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        font-size: 32px;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
     }
   </style>
 </head>
-
 <body>
-<header>
-  <a href="index.html" class="back-btn" aria-label="На главную" title="На главную">← На главную</a>
-  <h1>Наша компания</h1>
+
+<!-- Header — идентичен остальным страницам -->
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://allwebs.ru/images/2025/12/17/ee76f4163916c933b7445aa676731169.jpg" alt="photo 2025 12 17 11 17 11" border="0">
+      </a>
+    </div>
+    <nav class="nav">
+      <a href="#about" class="about">О компании</a>
+      <div class="services-wrapper">
+        <button id="servicesToggle" class="nav-btn" aria-haspopup="true" aria-expanded="false">
+          Услуги <span class="arrow">&#9656;</span>
+        </button>
+        <div id="servicesPopup" class="services-popup hidden" role="menu" aria-label="Перечень услуг">
+          <ul class="services-list-popup">
+            <li role="menuitem" tabindex="0"><a href="consultation.html" class="service-link">Банкротство для пенсионеров</a></li>
+            <li role="menuitem" tabindex="0"><a href="documents.html" class="service-link">Бесплатное банкротство</a></li>
+            <li role="menuitem" tabindex="0"><a href="court.html" class="service-link">Представительство в суде</a></li>
+            <li role="menuitem" tabindex="0"><a href="deal.html" class="service-link">Психологическая помощь</a></li>
+            <li role="menuitem" tabindex="0"><a href="family.html" class="service-link">Бесплатные услуги</a></li>
+          </ul>
+        </div>
+      </div>
+      <button id="contactOpen" class="nav-btn">Контакты</button>
+      <a href="#team" class="nav-btn">Команда</a>
+      <a href="gallery.html" class="nav-btn">Галерея</a>
+      <a href="index.html" class="back-btn">Главная</a>
+    </nav>
+  </div>
 </header>
 
-
 <main class="gallery-container">
-  <!-- Пример карточек: для добавления доп. сотрудников просто добавляйте такие же div.employee-card -->
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Иван Иванов" data-position="Разработчик" data-description="Опытный разработчик, специалист по JavaScript и фронтенду." data-img="data:image/jpeg;base64,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">
-    <img src="data:image/jpeg;base64,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" alt="Иван Иванов" width="100" height="100" loading="lazy" />
+  <!-- Иван Иванов — Юрист -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Иван Иванов" data-position="Юрист"
+       data-description="Опытный юрист, специалист по банкротству физических лиц."
+       data-img="data:image/jpeg;base64,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">
+    <div class="employee-photo">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTEhIWFRUVFxgYFxUVFxUWFxkVGBUXGBUTFRUaHSggGBolGxgVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0lHyUrLS0tLS0tLS0wLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS03LS0tLS0tLf/AABEIAKwBJAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYCBAcDAQj/xABAEAACAQICBwUFBAkDBQAAAAAAAQIDEQQhBRIxQVFhcQYHIoGRE0JSobEycsHRFCNigpKiwvDxM2PhQ3N0srP/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAjEQEBAAICAgIBBQAAAAAAAAAAAQIRAyESMSJBUQQTMkKB/9oADAMBAAIRAxEAPwDuIAAAAAAAAAAAAAAAABU+0Ha72d4YdKUtjm/sp/sr3n8upFos+JxMKcXKpOMIra5NJfMrGke8LB0rpOpUa+CErfxSsn5HNtM6Xq1JOVScpPctqv0Wwr2Kxkbu8XJ8lf1/yjLLkv02x459upPvYovKOGqvm3BLzdz1p96eHVnUo1ILe7qSXPd87HGquJ5W/ehbzRpxnbY7Plb8Cv7mSfDF+ktE9scFiHaliIa1r6svC+e3gTsZJq6d096PyZ7bfmnvdixdmO3+IwUkov2lLY6Um3G1/d3xLzk/Kl4/w/SQInsz2gpY2hGtSe1Zwb8UXdqz9CWNWYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhO1WKcaapx21HZ226u/p/k5zpytqLw2W6+zLgnuXTaWXtLpG+KnDdCKj6q7tzzK3W0XLEpulFuK97am9++7z5lMvS2PtQ9IYtybWbtxV0vPOxFTnK/iUb8NbV9L5fQs2ktAV4N/q8ls1fytt6IiFo+pujJ23SjL02W+Rg30i5yWy380fVcfU8ZLk/JLb1TJWphpb6by4a0X9DXeAk9lN9ctnPIbhqtSyed2+Wf02ni7cmuTd/Rm89Fz26ks+r/wAGrisHOKzi/wB5fjkTLCy/ha+6vtOsJjY600qFValTl8ErcpfJyP0hF3zWaZ+MHKzyP1F3VaUniNGUJ1Ja04qVOT3vUk4q/OyRvj0wy7W4AFlQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc2xWD18XiG9jnJL6FwwlCNOlGMVZJENSpfrJu22cn/ADElKVlYjelpNo7HU1fqaH6PD4USGKlc0tY5OT27cJ01KmCh8KPCeCh8JISZr1JmGTeI+eBjwIftBo2EqUvCiflIj9ILwsyl7aWdON6Qw2rJ5He+4Sq3o6abyhiJpck4U5Nerb8zk+nMBm2kdU7goWwNf/yZf/KkejxZ+TzOXDxdNABuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACO09jHSpaydryUb8G9nzsvMi3U2nGW3UQ9NeJvmz2mrmOHXhz23dyC7Q6TqRi/ZOMEvebzfLL8CmVk9tMJ9RMYm1rEXWiUDFdssTGVvDLybuWfQWl3XhdpJ77cea3HPyXbq4ukm9hrVEjDGY3UTyvbcVHF9rKuu4qilbjKPrm0Y3Hfpv5TH2tTZrYqN0Q+Dx2Jl4nBNcE01by2Mk6FfXV0muKe1MyuNi8sqt6UpZO63M6L3K0tXBVP+/L/ANKZT9N0lZMsHdx2g9jTjh5UspVX472vrWt4bZnRwZyXtzc/Hcp06gADveeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGppWip0pJq9rSS5xakvmjbPkldWe8izaZdXat4Grrwb5y+pF6S0VTqJqorx4Xa+hLUKKp3itl3bz2/O5jiqaauZ63O2/9uvShaa0fr1NdO7yy1VbwpLpsVvyPTs9gZKrrPfe6UbK1uvEm8Ra/ElcDQioOS+F3MZPKt78IonaCTc1FOyvn+RFU9G6ytJQvrX1nF8GtXbss+uSJ/SlNOWfHaY08O0snkc2OWq6s+OWIrC6GdOSlColm7qN0pX4pt7CepUt7WYpUGj1k7IZZ7VnH4ovTNLWSW66v03/K5L9kdFKri6U19mlGUrc/Co/M0Z5t5XbTS6vK5duwWi3Soucs3N5X+GN8/N3+Rbhx8s4rzZ+GFv8Ai0AA9J5QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIfH4LV1p6zd3syslmyJxlTKxZsfC9OXr6FSx+wy5Oo34ru9ozEyzyN/D6RhGn7NPx6ua383bgR9GSfW2Zq6Qh4bpZrY1t8jnx3j27MtZajX0tUiruTUY8ZNJerPPRc8tt1fJ7ct2fA0cXo11EpTvNx2XzzPShUcFZrLYY+Pe2/n0nZI1asjLR9ZzT4IwrZFcoiZbb3Z/QjxDm1NR1NVXave9+fI6JhaChCMFsikvRWK72Bo2oSn8dR26RSX1uWc7uDCTGX7rzv1HJcsrPqAAN3OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVXTWF1JW3PNdC1EPp+nfV8ymc3F+O6yVKWjYSWcbPirpro1miGx2i7O8as1+8/xLVOOXMj8Zh777HNlNO7jz7VV6OnL/AK8/VfSxsYXRMVnOUpv9ttpdFsRJfoqiKtVRMMq38npRaUct7NLF1L5GWvZc2eVSHhvxK30rPbp/Z7DqGGoxXwJvrJaz+bZImroud6VPlGKfVJXRtHqY+o8rL3QAEoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIrTqdovdd+pnp7TVLC0pVKj2JtRX2pNbl+Z76ntaSU1Zyim7bpNJ5dGLOiZaqtunrZETi4zi81lxRJym4TcJ5Sjt4NPZJcn/wAH2q01mc9m+nXjdXaArVb7jTVN3uyXrwSeSNOrZHPk6MXlGlvZvaI0c6slOStSi9/vtbl+zxfl03NE6Fc7Tqq0d0NjlzlwXLeWGSsrLJLcjTj4d95MuTnk+OKM0r2g/QlGrNN0XNRqW2xUso1Et9mkmuEuVnZ8FjKdaEalKcZwkrqUXdM5r3rV1HAyjvnUppeUtf8ApOedke1uIwFTWpPWpy+3Rk/DL9pfDLmvO51Rx1+lAV/sv2ww2NivZz1anvUptKafL4lzRYCyoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAitJ9oaFDKU7y+GOb89y8yj6e7xKmyhFQXxW1pfkvRl8cMqplnI6HpDSNKjHWqzUFz2votr8in6S7cSleOHjqr457eqjsS6nPv02dSXtK05Sb+Jtt9L7EeirOTtsXD8zfHhk9scuW30y7TY6VWVOEpOTqTipN7XeSXkszuZw/QlD22OUWsqcHPzTVvqdtpPwroZ8vtfjnSP01oxVo7dWcfsz4cnxT4FVjUkpOnUWrOO7c1ulF70XTH4unSg6lWcYQjtlJ2X+eRzTtH24oVJqMcPOUYv/VclTnz9nGzflK3Q58+O5dz26ePl8er6SsqLbSinKT2JEro3Qag1OraU9y2xj+b5/5PPshpjCVoNUJt1ErzjUsqvW2xx+7l5k7NFceKTur5c1vU9MTzqGZ41TRi5h3w4rKjT5yl6Ky+rOaRkXjvUq61emtyi2vOVr/ylGsRYlnGo09ua2PenyLPoXvBx+GatXdWHwVrzXk34l5MqonNJZu31IHbdAd7tCpaOKpSoy+OPjp+fvL0Zf8ARukqNeGvQqxqR4wafk+D5M/KVObeezqSGjtJ1aE9elUlTl8UG4+ttvmTtD9UA4hojvYxlOyrRp148beznb70cv5S86I7z8DVspudGT3TjeP8cbr1sSLsDxwuLp1I61OcZxe+MlJeqPYAAAAAAAAAAAAAAAAAAR+n9IrD4epW+CLt955R+bQk2XpEad7ZU6EpU4R9pOLs87RUrZq+9rIpWk+2GJq3TlqRfuw8Pq9pVcPiJSpxlJ3ck5N725NybfqYVar23zZ144YyOXLPK1sYzGtmjKW9mMm878GfKavtLqNuju5fkbmFjnc01PVj1ZsYa+rKTvsJQme7Va+KxE+EVH1f/B1iOJjCnrSeUV59Et7OV9zz1v0mXCol/Kn+J02dJSjnnbZ14nJbu11yakc37Z4mtXqqdS6ppP2dO+Uf2n+2/i3bNlyjYt52S5Zq3RW65Ws7Pgds05otVKMko3kk3FZK7t9m747DhuOqSvd05b75xee9NJ5tq91xV0uN5fipr5NjQGDnXxNOEKjg09Z1Iy1ZwirXcc7p5xXJs7dh8eoqMZycsre0aV3zlZL1SOSd3NJTxE7vOMFk9ucld8Ny2cTqFHDbmZWtZE3c1sQ75ev5HzD03HZs4H2pkRpLiveZVTxsor3IQj8tb+oqSJztvPWxuIf+44/wpR/pIFMIZ3MPYq995nJi6I0nb442PuqYTV2lwz/v+9x66gGJnCRgz4kRo228NjZ05KVOpKEr/ahJxfqjovYrvOrRqwo4ySnSlaPtX9qD2KUn70eN8999xy5vb/fX8DKnIJfrRM+lH7pdPvE4P2c3eph2oNva4W/Vt+V1+6XglAAAAAAAAAAAAAAFJ718Vq4TU+Jt+UV+bRdjl/e5Wd3HcqWXm5X+iL8c3kpyX4udYKr+rp/cj9D0hnm/74Hjo7/Th92P0Nu+R1z05b7eVs9+8ywtNntbJdH9DGGSXRMIfK89iRtVJWpTb4GlN2ZnpCT9hJ8h9J+1k7j6t4Ypf7sX5atv6Tq0NhxvuMm9bELioP5zOyQ2HHHZWria6jGUpZKKbfRK5wbHxztyta9t6Tuum3elY6v27xEo4eyf2pWfRRlK3rFHJtJTtJrbZU9vOWzy3GuM+LPL+Tc7H4x0cXB+7UepK9vedoO/3rerudmou5wvR/8ArU8tlW19/hqQz6u+fGyO4YR+FGOXVa49t+B4Yuoopyk7Rim23uSV2/Q94FS70sVKngJ6rtryp039ydSMZrzV15kjjel62vWqT+KcpfxSb/E1Icz7iZeJ9TOmiL7R9Pmqj44CaMZyyfmB503m35f38z1ufKS8J91gMTBHrJnlVlk/MIfFey9fUyijGbzFytWi/wDdBpR0cfGm34a8XTf3knOD9U1+8d8Py72WxUqeKoTjtVWnt2faV0fqIQAASAAAAAD/2Q==" alt="Иван Иванов" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Иван Иванов</h3>
-      <p>Юрист</p>
+
     </div>
   </div>
 
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Петров Иванович" data-position="Консультант" data-description="Креативный дизайнер с опытом работы в UI/UX и графическом дизайне." data-img="https://png.klev.club/uploads/posts/2024-04/thumbs/png-klev-club-pric-p-yurist-png-2.png">
-    <img src="https://png.klev.club/uploads/posts/2024-04/thumbs/png-klev-club-pric-p-yurist-png-2.png" alt="Петров Иванович" width="480" height="480" loading="lazy" />
+  <!-- Петров Иванович — Консультант -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Петров Иванович" data-position="Консультант"
+       data-description="Квалифицированный консультант по вопросам банкротства."
+       data-img="https://png.klev.club/uploads/posts/2024-04/thumbs/png-klev-club-pric-p-yurist-png-2.png">
+    <div class="employee-photo">
+      <img src="https://png.klev.club/uploads/posts/2024-04/thumbs/png-klev-club-pric-p-yurist-png-2.png" alt="Петров Иванович" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Петров Иванович</h3>
-      <p>Консультант</p>
+
     </div>
   </div>
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Алексей Смирнов" data-position="Менеджер проекта" data-description="Опытный менеджер проектов, координирующий команды и сроки." data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNJrwcu6PHROBVdQwNDexgnmrl8yZOGGZwQ&s">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNJrwcu6PHROBVdQwNDexgnmrl8yZOGGZwQ&s" alt="Алексей Смирнов" width="400" height="400" loading="lazy" />
+
+  <!-- Алексей Морозов — Менеджер проекта -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Алексей Морозов" data-position="Менеджер проекта"
+       data-description="Руководит проектами по сопровождению процедур банкротства."
+       data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNJrwcu6PHROBVdQwNDexgnmrl8yZOGGZwQ&s">
+    <div class="employee-photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNJrwcu6PHROBVdQwNDexgnmrl8yZOGGZwQ&s" alt="Алексей Морозов" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Алексей Морозов</h3>
-      <p>Менеджер проекта</p>
+
     </div>
   </div>
 
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Алексей Смирнов" data-position="Менеджер проекта" data-description="Опытный менеджер проектов, координирующий команды и сроки." data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Алексей Смирнов" width="400" height="400" loading="lazy" />
+  <!-- Елена Кузнецова — Менеджер проекта -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Елена Кузнецова" data-position="Менеджер проекта"
+       data-description="Координирует работу команды юристов."
+       data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
+    <div class="employee-photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Елена Кузнецова" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Елена Кузнецова</h3>
-      <p>Менеджер проекта</p>
+
     </div>
   </div>
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Алексей Смирнов" data-position="Менеджер проекта" data-description="Опытный менеджер проектов, координирующий команды и сроки." data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Алексей Смирнов" width="400" height="400" loading="lazy" />
+
+  <!-- Максим Романов — Менеджер проекта -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Максим Романов" data-position="Менеджер проекта"
+       data-description="Специалист по сложным делам о банкротстве."
+       data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
+    <div class="employee-photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Максим Романов" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Максим Романов</h3>
-      <p>Менеджер проекта</p>
+
     </div>
   </div>
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Алексей Смирнов" data-position="Менеджер проекта" data-description="Опытный менеджер проектов, координирующий команды и сроки." data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Алексей Смирнов" width="400" height="400" loading="lazy" />
+
+  <!-- Виктория Соловьёва — Менеджер проекта -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Виктория Соловьёва" data-position="Менеджер проекта"
+       data-description="Отвечает за взаимодействие с клиентами."
+       data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
+    <div class="employee-photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Виктория Соловьёва" loading="lazy">
+    </div>
     <div class="employee-info">
-      <h3>Викторяи Соловьёва</h3>
-      <p>Менеджер проекта</p>
+      <h3>Виктория Соловьёва</h3>
+
     </div>
   </div>
-  <div class="employee-card" tabindex="0" role="button" aria-pressed="false" data-name="Алексей Смирнов" data-position="Менеджер проекта" data-description="Опытный менеджер проектов, координирующий команды и сроки."  data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s", >
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Алексей Смирнов" width="400" height="400" loading="lazy" />
+
+  <!-- Иван Белоусов — Менеджер проекта -->
+  <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
+       data-name="Иван Белоусов" data-position="Менеджер проекта"
+       data-description="Эксперт по судебному представительству."
+       data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s">
+    <div class="employee-photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VAWlUdnhzQgtyss_G-WaeDPGgj3XBQx95A&s" alt="Иван Белоусов" loading="lazy">
+    </div>
     <div class="employee-info">
       <h3>Иван Белоусов</h3>
-      <p>Менеджер проекта</p>
+      
     </div>
   </div>
-
-  <!-- Можно просто добавлять новые .employee-card с такими же атрибутами -->
 </main>
-
-
-
 <!-- Модальное окно -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal" tabindex="-1">
@@ -298,9 +480,9 @@ gallery-container {
   </div>
 </div>
 
+<!-- Контакты и футер (оставил как у тебя было в предыдущих версиях) -->
 <section id="contacts" class="contacts-section">
   <div class="contacts-container">
-
     <!-- Левая колонка -->
     <div class="contacts-left">
     </div>
@@ -308,28 +490,16 @@ gallery-container {
     <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д.1</p>
     <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
     <p><strong>Email:</strong> bankrotnik05</p>
-
     <div class="socials">
       <a href="https://t.me/yourchannel"><img src="https://img.icons8.com/?size=100&id=hMdroXN9qFHy&format=png&color=000000" width="24"/></a>
       <a href="https://vk.com/yourpage"><img src="https://img.icons8.com/?size=100&id=60454&format=png&color=000000" width="24"/></a>
     </div>
-
-
-
     <!-- Правая колонка (карта) -->
     <div class="contacts-right">
-      <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor"
-              width="100%"
-              height="100%"
-              frameborder="0">
-      </iframe>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" width="100%" height="100%" frameborder="0"></iframe>
     </div>
   </div>
 </section>
-
-
-</div>
 
 <footer class="footer">
   <div class="container">
@@ -337,10 +507,7 @@ gallery-container {
   </div>
 </footer>
 
-<script src="script.js"></script>
-
-</body>
-</html>
+<!-- Скрипт для модального окна -->
 <script>
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
@@ -351,46 +518,66 @@ gallery-container {
   const modalDialog = modal.querySelector('.modal');
 
   function openModal(card) {
-    modalImg.src = card.dataset.img;
-    modalImg.alt = card.dataset.name;
-    modalTitle.textContent = card.dataset.name;
-    modalPosition.textContent = card.dataset.position;
-    modalDescription.textContent = card.dataset.description;
-
-    modal.classList.add('active');
-    modalDialog.focus();
+      modalImg.src = card.dataset.img;
+      modalImg.alt = card.dataset.name;
+      modalTitle.textContent = card.dataset.name;
+      modalPosition.textContent = card.dataset.position;
+      modalDescription.textContent = card.dataset.description;
+      modal.classList.add('active');
+      modalDialog.focus();
   }
 
   function closeModal() {
-    modal.classList.remove('active');
-    modalImg.src = '';
-    modalTitle.textContent = '';
-    modalPosition.textContent = '';
-    modalDescription.textContent = '';
+      modal.classList.remove('active');
+      modalImg.src = '';
+      modalTitle.textContent = '';
+      modalPosition.textContent = '';
+      modalDescription.textContent = '';
   }
 
   document.querySelectorAll('.employee-card').forEach(card => {
-    card.addEventListener('click', () => openModal(card));
-    card.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal(card);
-      }
-    });
+      card.addEventListener('click', () => openModal(card));
+      card.addEventListener('keydown', e => {
+          if(e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openModal(card);
+          }
+      });
   });
 
   modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
-    if(e.target === modal) {
-      closeModal();
-    }
+      if(e.target === modal) {
+          closeModal();
+      }
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+      }
   });
 </script>
 
+<!-- Скрипт для меню "Услуги" -->
+<script>
+  const servicesToggle = document.getElementById('servicesToggle');
+  const servicesPopup = document.getElementById('servicesPopup');
+  const arrow = servicesToggle.querySelector('.arrow');
+
+  servicesToggle.addEventListener('click', () => {
+      const expanded = servicesToggle.getAttribute('aria-expanded') === 'true';
+      servicesToggle.setAttribute('aria-expanded', !expanded);
+      servicesPopup.classList.toggle('show');
+      arrow.classList.toggle('rotate');
+  });
+
+  document.addEventListener('click', (e) => {
+      if (!servicesToggle.contains(e.target) && !servicesPopup.contains(e.target)) {
+          servicesPopup.classList.remove('show');
+          servicesToggle.setAttribute('aria-expanded', 'false');
+          arrow.classList.remove('rotate');
+      }
+  });
+</script>
 </body>
 </html>
