@@ -1222,3 +1222,128 @@ header .logo {
     max-width: 120px;
   }
 }
+
+.footer-bottom-bar {
+  background: #0a192f;
+  color: white;
+  padding: 60px 20px 60px; /* больше отступ снизу для копирайта */
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 auto 40px;
+  max-width: 1200px;
+}
+
+/* Копирайт ПОД линией */
+.footer-copyright-bottom {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-copyright-bottom p {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+}
+.footer-contacts-left {
+  text-align: left;             /* ← текст слева */
+}
+
+.footer-socials {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;  /* ← иконки слева под текстом */
+}
+
+.footer-copyright {
+  margin-left: auto;            /* копирайт сдвигается вправо (по центру или справа) */
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 40px auto 0;
+  max-width: 1200px;
+}
+
+/* На мобильных — всё по центру для удобства */
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
+  .footer-copyright {
+    margin-left: 0;
+  }
+}
+
+.footer-bottom-bar {
+  background: #0a192f;
+  color: white;
+  padding: 80px 20px 40px; /* больше пространства сверху и снизу */
+  text-align: center;      /* центрирует весь текст */
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-contacts-center p {
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.footer-contacts-center a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-contacts-center a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: center; /* иконки по центру */
+}
+
+.footer-socials img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.15);
+}
+
+/* На мобильных — всё остаётся по центру */
+@media (max-width: 768px) {
+  .footer-bottom-bar {
+    padding: 60px 20px 50px;
+  }
+  .footer-socials {
+    gap: 25px;
+  }
+}
