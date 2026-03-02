@@ -116,7 +116,8 @@ footer * {
     <div class="container header-container">
         <div class="logo">
             <a href="index.html">
-                <img src="https://allwebs.ru/images/2025/12/17/ee76f4163916c933b7445aa676731169.jpg" alt="photo 2025 12 17 11 17 11" border="0">
+                <img  src="https://allwebs.ru/images/2025/12/17/ee76f4163916c933b7445aa676731169.jpg" alt="photo 2025 12 17 11 17 11" border="0">
+            </a>
         </div>
 
         <nav class="nav">
@@ -205,6 +206,80 @@ footer * {
                 <p>Юрист по семейным делам</p>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- КАЛЬКУЛЯТОР СТОИМОСТИ БАНКРОТСТВА -->
+<section class="calculator-section" id="calculator">
+    <div class="container">
+        <h2 class="calc-title">Рассчитайте стоимость банкротства за 60 секунд</h2>
+        <p class="calc-subtitle">Введите основные данные — и получите точную примерную цену и сроки списания долгов</p>
+
+        <form class="calc-form" id="calcForm">
+            <!-- Поле 1: Сумма долга -->
+            <div class="calc-group">
+                <label class="calc-label">Общая сумма долгов (₽)</label>
+                <input type="number" id="debtAmount" min="300000" placeholder="Например: 1200000" required>
+            </div>
+
+            <!-- Поле 2: Просрочки -->
+            <div class="calc-group">
+                <label class="calc-label">Просрочки более 3 месяцев</label>
+                <select id="delay" required>
+                    <option value="">Выберите...</option>
+                    <option value="yes">Да, есть просрочки</option>
+                    <option value="no">Нет, плачу вовремя</option>
+                </select>
+            </div>
+
+            <!-- Поле 3: Ипотека/залог -->
+            <div class="calc-group">
+                <label class="calc-label">Есть ипотека или залоговое имущество?</label>
+                <select id="pledge" required>
+                    <option value="">Выберите...</option>
+                    <option value="yes">Да, есть ипотека/залог</option>
+                    <option value="no">Нет, имущества в залоге нет</option>
+                </select>
+            </div>
+
+            <!-- Поле 4: Возраст -->
+            <div class="calc-group">
+                <label class="calc-label">Ваш возраст</label>
+                <select id="age" required>
+                    <option value="">Выберите...</option>
+                    <option value="pension">Пенсионер / предпенсионный возраст</option>
+                    <option value="middle">30–55 лет</option>
+                    <option value="young">До 30 лет</option>
+                </select>
+            </div>
+
+            <!-- Поле 5: Город (для региональной цены) -->
+            <div class="calc-group">
+                <label class="calc-label">Город проживания</label>
+                <input type="text" id="city" placeholder="Например: Москва, Ростов-на-Дону" required>
+            </div>
+
+            <!-- Кнопка расчёта -->
+            <button type="submit" class="calc-submit">Рассчитать стоимость</button>
+        </form>
+
+        <!-- Результат -->
+        <div class="calc-result" id="calcResult" style="display: none;">
+            <h3>Ваш расчёт:</h3>
+            <div class="calc-result-block">
+                <p><strong>Сумма долга:</strong> <span id="resDebt"></span></p>
+                <p><strong>Примерная стоимость процедуры:</strong> <span id="resPrice" class="highlight-price"></span></p>
+                <p><strong>Сроки списания:</strong> <span id="resTime"></span></p>
+                <p><strong>Особенности:</strong> <span id="resComment"></span></p>
+            </div>
+
+            <p class="calc-note">* Это примерный расчёт. Точная стоимость будет определена после консультации юриста.</p>
+
+            <div class="calc-actions">
+                <button class="calc-again" onclick="resetCalc()">Новый расчёт</button>
+
+            </div>
         </div>
     </div>
 </section>

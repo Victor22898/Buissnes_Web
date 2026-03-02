@@ -282,3 +282,56 @@ async function loadServiceInForm(serviceId) {
 // Тестовый вызов (можно вызвать при клике на услугу)
 loadServiceInForm(1);  // Загрузит данные услуги с ID 1
 
+// КАЛЬКУЛЯТОР СТОИМОСТИ
+document.getElementById('calcForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const debt = parseInt(document.getElementById('debtAmount').value) || 0;
+  const delay = document.getElementById('delay').value;
+  const pledge = document.getElementById('pledge').value;
+  const age = document.getElementById('age').value;
+  const city = document.getElementById('city').value.trim() || 'не указан';
+
+  let price = 120000;
+  let time = '6–9 месяцев';
+  let comment = 'Стандартная процедура';
+
+  // Логика расчёта (примерные значения из практики банкротства)
+  if (debt < 500000) price = 89000;
+  else if (debt < 1500000) price = 120000;
+  else price = 180000;
+
+  if (delay === 'yes') time = '7–10 месяцев';
+  if (pledge === 'yes') {
+    comment = 'Возможна сложность с сохранением залогового имущества';
+    price += 30000;
+  }
+  if (age === 'pension') {
+    comment = 'Специальная программа для пенсионеров — без предоплаты';
+    price = Math.max(69000, price - 30000);
+  }
+
+  // Региональная корректировка
+  if (city.toLowerCase().includes('москва') || city.toLowerCase().includes('петербург')) price += 20000;
+
+  // Вывод результата
+  document.getElementById('resDebt').textContent = debt.toLocaleString('ru-RU') + ' ₽';
+  document.getElementById('resPrice').textContent = price.toLocaleString('ru-RU') + ' ₽';
+  document.getElementById('resTime').textContent = time;
+  document.getElementById('resComment').textContent = comment;
+
+  document.getElementById('calcForm').style.display = 'none';
+  document.getElementById('calcResult').style.display = 'block';
+});
+
+// Новый расчёт
+function resetCalc() {
+  document.getElementById('calcForm').reset();
+  document.getElementById('calcForm').style.display = 'block';
+  document.getElementById('calcResult').style.display = 'none';
+}
+
+// Прокрутка к форме заявки
+document.querySelector('.calc-request')?.addEventListener('click', function() {
+  document.querySelector('#request-form')?.scrollIntoView({ behavior: 'smooth' });
+});

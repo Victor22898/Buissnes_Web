@@ -41,6 +41,7 @@ body {
   font-weight: 700;
   font-size: 1.6rem;
   user-select: none;
+
 }
 
 .nav {
@@ -1348,3 +1349,137 @@ header .logo {
   }
 }
 
+/* КАЛЬКУЛЯТОР */
+.calculator-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9f0f8);
+  text-align: center;
+}
+
+.calc-title {
+  font-size: 2.8rem;
+  color: #0a1d37;
+  margin-bottom: 20px;
+}
+
+.calc-subtitle {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calc-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.calc-group {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.calc-label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.calc-form input[type="number"],
+.calc-form input[type="text"],
+.calc-form select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  transition: border 0.3s;
+}
+
+.calc-form input:focus,
+.calc-form select:focus {
+  border-color: #00c853;
+  outline: none;
+}
+
+.calc-submit {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  background: #00c853;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.calc-submit:hover {
+  background: #00a843;
+}
+
+.calc-result {
+  max-width: 600px;
+  margin: 40px auto 0;
+  background: #e8f5e9;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.calc-result h3 {
+  color: #00c853;
+  margin-bottom: 25px;
+}
+
+.calc-result-block p {
+  font-size: 1.3rem;
+  margin: 15px 0;
+}
+
+.highlight-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #87CEEB;
+}
+
+.calc-note {
+  font-size: 1rem;
+  color: #666;
+  margin: 25px 0;
+}
+
+.calc-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.calc-again {
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  background: #f0f4f8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.calc-request {
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  color: white;
+  background: #0a1d37;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
