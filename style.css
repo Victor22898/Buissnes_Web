@@ -601,7 +601,7 @@ h4 {
 .footer p {
   margin: 0; /* убираем лишний отступ */
   font-size: 14px;
-  color: #333;
+  color: #ffffff;
 }
 
 .employee-card {
@@ -1225,7 +1225,7 @@ header .logo {
 }
 
 .footer-bottom-bar {
-  background: #0a192f;
+  background: #ffffff;
   color: white;
   padding: 60px 20px 60px; /* больше отступ снизу для копирайта */
 }
@@ -1311,6 +1311,7 @@ header .logo {
 .footer-contacts-center p {
   margin: 12px 0;
   font-size: 16px;
+  color:#ffffff;
 }
 
 .footer-contacts-center a {
@@ -1482,4 +1483,98 @@ header .logo {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.footer {
+  background: #0a1d37;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #00c853;
+  text-decoration: underline;
+}
+
+.contacts-column p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.footer-socials img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.15);
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 20px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
 }
