@@ -1225,38 +1225,26 @@ header .logo {
 }
 
 .footer-bottom-bar {
-  background: #ffffff;
+  background: #0a192f;
   color: white;
-  padding: 60px 20px 60px; /* больше отступ снизу для копирайта */
+  padding: 0;
 }
 
 .footer-bottom-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 40px;
-  padding-bottom: 40px;
+  display: none;
 }
 
 .footer-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.15);
-  margin: 0 auto 40px;
-  max-width: 1200px;
+  display: none;
 }
 
 /* Копирайт ПОД линией */
 .footer-copyright-bottom {
-  text-align: center;
-  padding: 20px 0;
+  display: none;
 }
 
 .footer-copyright-bottom p {
-  margin: 0;
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
+  display: none;
 }
 .footer-contacts-left {
   text-align: left;             /* ← текст слева */
