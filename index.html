@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Юридическая Компания - Банкротник</title>
     <link rel="stylesheet" href="style.css" />
@@ -109,7 +108,8 @@ footer * {
   }
   .footer-socials {
     justify-content: center;
-
+  }
+}
 </style>
 
 <header class="header">
@@ -145,7 +145,7 @@ footer * {
 
 
 
-            <button id="contactOpen" class="nav-btn">Контакты</button>
+            <a href="#contacts" class="nav-btn">Контакты</a>
             <a href="#team" class="nav-btn">Команда</a>
             <a href="gallery.html" class="nav-btn">Галерея</a>
 
@@ -204,7 +204,7 @@ footer * {
             <div class="member" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="memberModal" data-member="marina">
                 <img src="https://kapachinskaya.ru/images/35hnz0.jpg" alt="Марина Кузнецова" />
                 <h3>Марина Кузнецова</h3>
-                <p>Юрист по семейным делам</p>
+                <p>Юрист</p>
             </div>
 
         </div>
@@ -315,7 +315,6 @@ footer * {
                 <option value="" disabled selected>Выберите услугу</option>
                 <option value="Консультация">Банкротство для пенсионеров</option>
                 <option value="Подготовка документов">Бесплатное банкротство</option>
-                <option value="Судебное представительство">Представительство в суде</option>
                 <option value="Судебное представительство">Психологическая помощь</option>
                 <option value="Судебное представительство">Бесплатные услуги</option>
 
@@ -365,7 +364,7 @@ footer * {
 
 </div>
 
-<footer class="footer">
+<footer id="contacts" class="footer">
     <div class="container footer-container">
         <!-- Основной ряд: Услуги + Меню + Ищите нас здесь -->
         <div class="footer-row">

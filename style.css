@@ -1,5 +1,5 @@
 
-• {
+* {
   box-sizing: border-box;
 }
 
@@ -1567,3 +1567,121 @@ header .logo {
   }
 }
 
+/* ====================== АДАПТИВНОСТЬ ====================== */
+
+/* Планшеты и большие телефоны */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Мобильные телефоны */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 15px;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .nav a, .nav .nav-btn {
+        padding: 10px 0;
+        font-size: 1.05rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Галерея */
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+    main {
+        margin: 30px auto;
+        padding: 0 10px;
+    }
+
+    /* Футер */
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+    }
+
+    .footer-column {
+        min-width: auto;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+
+    /* Кнопки */
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 20px auto;
+    }
+}
+
+/* Очень маленькие экраны (iPhone SE и т.д.) */
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 0;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Дополнительная адаптивность для мобильных */
+    .calc-form {
+        padding: 20px 15px;
+    }
+    
+    .calc-title {
+        font-size: 1.5rem;
+    }
+    
+    .calc-subtitle {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
