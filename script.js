@@ -223,7 +223,7 @@ const mockServices = {
     price: 0.00,
     duration_days: 90
   }
-  // Добавь остальные услуги по аналогии
+
 };
 
 // Имитация GET /api/services/{service_id}

@@ -66,7 +66,7 @@
     font-size: 28px;
     letter-spacing: 1px;
   }
-/* ==================== ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ УСЛУГ ==================== */
+
 .page-title {
   background: #0a192f;
   color: white;
@@ -86,17 +86,17 @@
 
 .big-hero-text {
 max-width: 1000px;
-margin: 0;                    /* убираем margin: 0 auto */
-margin-left: 0;               /* явно прижимаем к левому краю */
+margin: 0;
+margin-left: 0;
 font-size: 36px;
 font-weight: 800;
 line-height: 1.4;
 color: #0a1e3a;
-text-align: left;             /* текст по левому краю */
+text-align: left;
 }
 .big-hero-text .blue { color: #007bff; }
 
-/* ==================== БЛОК С ЦИФРАМИ И ТЕКСТОМ ==================== */
+
 .why-banks-section {
   padding: 100px 20px;
   background: #f8f9fc;
@@ -113,7 +113,7 @@ text-align: left;             /* текст по левому краю */
 .reason-item {
   flex: 1;
   min-width: 280px;
-  text-align: center;            /* ← центрируем всё внутри */
+  text-align: center;
 }
 .reason-number {
 width: 80px;
@@ -132,7 +132,7 @@ box-shadow: 0 10px 30px rgba(0,123,255,0.15);
 transition: all 0.35s ease;
 }
 
-/* При наведении — только кружок меняется */
+
 .reason-item:hover .reason-number {
 background: #007bff;
 color: white;
@@ -140,7 +140,7 @@ transform: translateY(-8px);
 box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
 }
 
-/* Заголовки (Доверчивость, Правовая неграмотность...) — никогда не подсвечиваются */
+
 .reason-item:hover .reason-title {
 color: #0a1e3a !important;
 }
@@ -173,7 +173,7 @@ color: white !important;
 }
 
 
-/* Адаптивность */
+
 @media (max-width: 992px) {
   .reasons-list, .price-circles { gap: 50px; }
   .big-hero-text { font-size: 32px; }
@@ -253,7 +253,7 @@ position: absolute;
 left: -18px;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
 .benefit-item {
   flex-direction: column;
@@ -277,7 +277,7 @@ text-align: left;
 </head>
 <body>
 
-<!-- Хедер и заголовок -->
+
 
 
 <header>
@@ -288,14 +288,14 @@ text-align: left;
 
 <main class="container">
 
-  <!-- Большой текст -->
+
   <section class="service-info">
     <h1 class="big-hero-text">
       Мы предлагаем, <span class="blue">бесплатное</span> прохождение процедуры банкротства для следующих категорий граждан:
     </h1>
   </section>
 
-  <!-- Блок "Почему банки выбирают пенсионеров" — теперь всё по центру -->
+
   <section class="why-banks-section">
     <div class="reasons-list">
       <div class="reason-item">
@@ -355,7 +355,7 @@ text-align: left;
             </div>
           </div>
 
-          <!-- Добавляй новые пункты по такому же шаблону -->
+
           <div class="benefit-item">
             <div class="benefit-number">3</div>
             <div class="benefit-content">
@@ -427,11 +427,11 @@ text-align: left;
   <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" width="100%" height="300" frameborder="0"></iframe>
   <button class="btn" onclick="window.open('https://yandex.ru/maps/39/rostov-na-donu/house/sotsialisticheskaya_ulitsa_37/Z0AYcQdkTEABQFptfX5weX9gbQ==/panorama/?ll=39.704556%2C47.218339&mode=search&panorama%5Bdirection%5D=338.594002%2C0.609756&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=39.704639%2C47.218252&panorama%5Bspan%5D=121.957190%2C60.000000&sll=37.606692%2C55.764338&sspn=0.021801%2C0.007053&tab=panorama&text=%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2037&z=16')">Карта офиса</button>
 </div>
-<!-- footer.html -->
+
 <footer class="footer">
   <div class="container footer-container">
     <div class="footer-row">
-      <!-- Услуги -->
+
       <div class="footer-column">
         <h4 class="footer-title">УСЛУГИ</h4>
         <ul class="footer-links">
@@ -442,7 +442,7 @@ text-align: left;
         </ul>
       </div>
 
-      <!-- Меню -->
+
       <div class="footer-column">
         <h4 class="footer-title">МЕНЮ</h4>
         <ul class="footer-links">
@@ -453,7 +453,7 @@ text-align: left;
         </ul>
       </div>
 
-      <!-- Ищите нас здесь -->
+
       <div class="footer-column contacts-column">
         <h4 class="footer-title">ИЩИТЕ НАС ЗДЕСЬ</h4>
         <p><strong>Адрес:</strong> г. Ростов-на-Дону, ул. Социалистическая, д.37</p>
@@ -470,7 +470,7 @@ text-align: left;
       </div>
     </div>
 
-    <!-- Копирайт -->
+
     <div class="footer-copyright">
       <p> ООО ЮК Банкротник, 2026</p>
       <p>ИНН 9703106141</p>

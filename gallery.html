@@ -8,8 +8,8 @@
 
     .btn {
       display: block;
-      margin: 30px 0 0 0;           /* убираем auto — больше не центрирует */
-      margin-left: 20px;            /* небольшой отступ слева (можно изменить) */
+      margin: 30px 0 0 0;
+      margin-left: 20px;
       padding: 16px 32px;
       font-size: 18px;
       font-weight: 700;
@@ -39,7 +39,7 @@
           }
         }
 
-            /* ====================== HEADER ====================== */
+
         .header {
           background: #34495e;
           color: white;
@@ -48,13 +48,13 @@
           top: 0;
           z-index: 1000;
           box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-          text-align: center; /* центрирует всё внутри */
+          text-align: center;
         }
 
         .header-container {
           display: flex;
-          flex-direction: column;    /* логотип сверху, меню снизу */
-          align-items: center;       /* всё строго по центру */
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
           gap: 15px;
           max-width: 1200px;
@@ -178,7 +178,7 @@
                     padding: 0 15px;
                 }
 
-                /* ====================== HEADER ====================== */
+
                 .header {
                     background: #34495e;
                     color: white;
@@ -238,7 +238,7 @@
 
 
 
-                /* Выпадающее меню "Услуги" */
+
                 .services-wrapper {
                     position: relative;
                     display: inline-block;
@@ -372,7 +372,7 @@
                     cursor: pointer;
                 }
 
-                /* ========== FOOTER ========== */
+
                 footer {
                     background: #0a192f;
                     color: white;
@@ -382,7 +382,7 @@
                     flex-shrink: 0;
                 }
 
-                /* ========== МОДАЛЬНОЕ ОКНО ========== */
+
                 .modal-overlay {
                     position: fixed;
                     top: 0; left: 0; right: 0; bottom: 0;
@@ -481,7 +481,7 @@
               }
             }
 
-            /* ========== MAIN (галерея) ========== */
+
             main {
               flex: 1 0 auto;
               max-width: 1200px;
@@ -516,8 +516,8 @@
               cursor: pointer;
             }
 
-/* ====================== ИСПРАВЛЕНИЕ ПОДВАЛА ====================== */
-/* ====================== FOOTER ====================== */
+
+
 .footer {
     background: #0a192f;
     color: white;
@@ -590,7 +590,7 @@
     transform: translateY(-4px);
 }
 
-/* Копирайт — по правому краю */
+
 .footer-copyright {
     text-align: right;
     padding-top: 25px;
@@ -604,7 +604,7 @@
     margin: 4px 0;
 }
 
-/* Адаптивность */
+
 @media (max-width: 992px) {
     .footer-row {
         gap: 30px;
@@ -629,7 +629,7 @@
 </head>
 <body>
 
-<!-- Header — идентичен остальным страницам -->
+
 <header class="header">
   <div class="container header-container">
     <div class="logo">
@@ -664,7 +664,7 @@
 </header>
 
 <main class="gallery-container">
-  <!-- Иван Иванов — Юрист -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Иван Иванов" data-position="Юрист"
        data-description="Опытный юрист, специалист по банкротству физических лиц."
@@ -679,7 +679,7 @@
     </div>
   </div>
 
-  <!-- Петров Иванович — Консультант -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Петров Иванович" data-position="Консультант"
        data-description="Квалифицированный консультант по вопросам банкротства."
@@ -694,7 +694,7 @@
     </div>
   </div>
 
-  <!-- Алексей Морозов — Менеджер проекта -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Алексей Морозов" data-position="Менеджер проекта"
        data-description="Руководит проектами по сопровождению процедур банкротства."
@@ -709,7 +709,7 @@
     </div>
   </div>
 
-  <!-- Елена Кузнецова — Менеджер проекта -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Елена Кузнецова" data-position="Менеджер проекта"
        data-description="Координирует работу команды юристов."
@@ -724,7 +724,7 @@
     </div>
   </div>
 
-  <!-- Максим Романов — Менеджер проекта -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Максим Романов" data-position="Менеджер проекта"
        data-description="Специалист по сложным делам о банкротстве."
@@ -739,7 +739,7 @@
     </div>
   </div>
 
-  <!-- Виктория Соловьёва — Менеджер проекта -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Виктория Соловьёва" data-position="Менеджер проекта"
        data-description="Отвечает за взаимодействие с клиентами."
@@ -754,7 +754,7 @@
     </div>
   </div>
 
-  <!-- Иван Белоусов — Менеджер проекта -->
+
   <div class="employee-card" tabindex="0" role="button" aria-pressed="false"
        data-name="Иван Белоусов" data-position="Менеджер проекта"
        data-description="Эксперт по судебному представительству."
@@ -769,7 +769,7 @@
     </div>
   </div>
 </main>
-<!-- Модальное окно -->
+
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal" tabindex="-1">
     <span class="modal-close" aria-label="Закрыть">&times;</span>
@@ -782,13 +782,11 @@
   </div>
 </div>
 
-<!-- footer.html — исправленный подвал (точно как на других страницах) -->
-<!-- === ИСПРАВЛЕННЫЙ ПОДВАЛ === -->
-<!-- === ИСПРАВЛЕННЫЙ ПОДВАЛ (точно как на остальных страницах) === -->
+
 <footer class="footer">
   <div class="container footer-container">
     <div class="footer-row">
-      <!-- УСЛУГИ -->
+
       <div class="footer-column">
         <h4 class="footer-title">УСЛУГИ</h4>
         <ul class="footer-links">
@@ -799,7 +797,7 @@
         </ul>
       </div>
 
-      <!-- МЕНЮ -->
+
       <div class="footer-column">
         <h4 class="footer-title">МЕНЮ</h4>
         <ul class="footer-links">
@@ -810,7 +808,7 @@
         </ul>
       </div>
 
-      <!-- ИЩИТЕ НАС ЗДЕСЬ -->
+
       <div class="footer-column contacts-column">
         <h4 class="footer-title">ИЩИТЕ НАС ЗДЕСЬ</h4>
         <p><strong>Адрес:</strong> г. Ростов-на-Дону, ул. Социалистическая, д.37</p>
@@ -828,7 +826,7 @@
       </div>
     </div>
 
-    <!-- Копирайт -->
+
     <div class="footer-copyright">
       <p> ООО ЮК Банкротник, 2026</p>
       <p>ИНН 9703106141</p>
@@ -839,7 +837,7 @@
 
 <script src="script.js"></script>
 
-<!-- Скрипт для модального окна -->
+
 <script>
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
@@ -890,7 +888,7 @@
   });
 </script>
 
-<!-- Скрипт для меню "Услуги" -->
+
 <script>
   const servicesToggle = document.getElementById('servicesToggle');
   const servicesPopup = document.getElementById('servicesPopup');
