@@ -1,6 +1,6 @@
 // script.js
 
-// Плавное появление секций при скролле
+
 const sections = document.querySelectorAll('.section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -13,7 +13,7 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(section => observer.observe(section));
 
-// Всплывающее меню услуг из шапки
+
 const servicesToggle = document.getElementById('servicesToggle');
 const servicesPopup = document.getElementById('servicesPopup');
 const arrow = servicesToggle.querySelector('.arrow');
@@ -25,7 +25,7 @@ servicesToggle.addEventListener('click', e => {
   servicesToggle.setAttribute('aria-expanded', showed ? 'true' : 'false');
 });
 
-// Закрыть меню, если клик вне
+
 document.addEventListener('click', (e) => {
   if (!servicesToggle.contains(e.target) && !servicesPopup.contains(e.target)) {
     servicesPopup.classList.remove('show');
@@ -35,7 +35,7 @@ document.addEventListener('click', (e) => {
 });
 
 
-// Модальное окно контактов
+
 const contactModal = document.getElementById('contactModal');
 const contactOpenButtons = document.querySelectorAll('#contactOpen, #contactOpenBtn');
 const contactClose = document.getElementById('contactClose');
@@ -53,7 +53,7 @@ contactClose.addEventListener('click', () => {
   document.body.style.overflow = '';
 });
 
-// Закрытие модального окна по клику на подложку
+
 contactModal.addEventListener('click', e => {
   if (e.target === contactModal) {
     contactModal.classList.add('hidden');
@@ -61,7 +61,7 @@ contactModal.addEventListener('click', e => {
   }
 });
 
-// Отправка формы с валидацией
+
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -82,7 +82,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   document.body.style.overflow = '';
 });
 
-// Данные о сотрудниках
+
 const teamMembers = {
   elena: {
     name: "Елена Смирнова",
@@ -108,7 +108,7 @@ const teamMembers = {
 
 
 
-// Элементы модалки сотрудника
+
 const memberModal = document.getElementById('memberModal');
 const memberPhoto = document.getElementById('memberPhoto');
 const memberName = document.getElementById('memberName');
@@ -116,7 +116,7 @@ const memberPosition = document.getElementById('memberPosition');
 const memberDesc = document.getElementById('memberDesc');
 const memberClose = document.getElementById('memberClose');
 
-// Навешиваем события на карточки
+
 document.querySelectorAll('.member').forEach(card => {
   card.addEventListener('click', () => {
     const key = card.dataset.member;
@@ -135,7 +135,7 @@ document.querySelectorAll('.member').forEach(card => {
   });
 });
 
-// Закрытие модалки сотрудника
+
 memberClose.addEventListener('click', () => {
   memberModal.classList.add('hidden');
   document.body.style.overflow = '';
@@ -149,7 +149,7 @@ memberModal.addEventListener('click', e => {
 });
 
 
-// Показать/скрыть плашку "Другие услуги"
+
 const otherServicesBtn = document.querySelector('.nav a[href="#other-services"]');
 const otherServicePopups = document.getElementById('otherServicePopups');
 
@@ -166,7 +166,7 @@ if (otherServicesBtn && otherServicePopups) {
     });
 }
 
-// script.js — 100% работает
+
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.faq-item');
 
@@ -174,23 +174,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const header = item.querySelector('.faq-header');
     const toggle = item.querySelector('.faq-toggle');
 
-    // Клик по всей шапке (и по кнопке тоже)
+
     header.addEventListener('click', function (e) {
-      // Если клик по кнопке — не даём ей всплывать отдельно
+
       if (toggle && e.target.closest('.faq-toggle')) {
         e.preventDefault();
       }
 
       const isActive = item.classList.contains('active');
 
-      // Закрываем все остальные
+
       items.forEach(i => {
         i.classList.remove('active');
         const btn = i.querySelector('.faq-toggle');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
-      // Если текущий был закрыт — открываем
+
       if (!isActive) {
         item.classList.add('active');
         if (toggle) toggle.setAttribute('aria-expanded', 'true');
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Mock API для тестирования (имитация сервера)
+
 const mockServices = {
   1: {
     service_id: 1,
@@ -226,10 +226,10 @@ const mockServices = {
 
 };
 
-// Имитация GET /api/services/{service_id}
+
 async function fetchService(serviceId) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {  // Имитация сетевой задержки 500 мс
+    setTimeout(() => {
       const service = mockServices[serviceId];
       if (service) {
         resolve({
@@ -246,7 +246,7 @@ async function fetchService(serviceId) {
   });
 }
 
-// Имитация POST /api/requests
+
 async function submitRequest(requestData) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -262,15 +262,15 @@ async function submitRequest(requestData) {
   });
 }
 
-// Пример использования в твоём коде (добавь в места, где нужна услуга)
+
 async function loadServiceInForm(serviceId) {
   try {
     const response = await fetchService(serviceId);
     if (response.status === 200) {
       const data = await response.json();
       console.log("Услуга загружена:", data);
-      // Здесь можно вставить данные в HTML-элементы страницы
-      // Пример: document.querySelector('.service-name').textContent = data.service_name;
+
+
     } else {
       console.error("Ошибка:", response.status);
     }
@@ -279,10 +279,10 @@ async function loadServiceInForm(serviceId) {
   }
 }
 
-// Тестовый вызов (можно вызвать при клике на услугу)
-loadServiceInForm(1);  // Загрузит данные услуги с ID 1
 
-// КАЛЬКУЛЯТОР СТОИМОСТИ
+loadServiceInForm(1);
+
+
 document.getElementById('calcForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -296,7 +296,7 @@ document.getElementById('calcForm').addEventListener('submit', function(e) {
   let time = '6–9 месяцев';
   let comment = 'Стандартная процедура';
 
-  // Логика расчёта (примерные значения из практики банкротства)
+
   if (debt < 500000) price = 89000;
   else if (debt < 1500000) price = 120000;
   else price = 180000;
@@ -311,10 +311,10 @@ document.getElementById('calcForm').addEventListener('submit', function(e) {
     price = Math.max(69000, price - 30000);
   }
 
-  // Региональная корректировка
+
   if (city.toLowerCase().includes('москва') || city.toLowerCase().includes('петербург')) price += 20000;
 
-  // Вывод результата
+
   document.getElementById('resDebt').textContent = debt.toLocaleString('ru-RU') + ' ₽';
   document.getElementById('resPrice').textContent = price.toLocaleString('ru-RU') + ' ₽';
   document.getElementById('resTime').textContent = time;
@@ -324,14 +324,14 @@ document.getElementById('calcForm').addEventListener('submit', function(e) {
   document.getElementById('calcResult').style.display = 'block';
 });
 
-// Новый расчёт
+
 function resetCalc() {
   document.getElementById('calcForm').reset();
   document.getElementById('calcForm').style.display = 'block';
   document.getElementById('calcResult').style.display = 'none';
 }
 
-// Прокрутка к форме заявки
+
 document.querySelector('.calc-request')?.addEventListener('click', function() {
   document.querySelector('#request-form')?.scrollIntoView({ behavior: 'smooth' });
 });
